@@ -37,7 +37,7 @@ def getDriver():
     # chrome_options.add_argument('headless')
     # prefs = {"profile.managed_default_content_settings.images": 2,'permissions.default.stylesheet':2}
     # chrome_options.add_experimental_option("prefs", prefs)
-    driver = webdriver.Chrome(chrome_options=chrome_options)
+    driver = webdriver.Chrome(chrome_options=chrome_options, executable_path=r'chromedriver\chromedriver.exe')
     return driver
 
 
