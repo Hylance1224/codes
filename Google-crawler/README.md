@@ -1,5 +1,5 @@
 # ReviewCrawler
-Reviews of Google Play crawler
+Google Play Reviews crawler
 
 # How to use
 
