@@ -17,6 +17,21 @@ def connect_sql():
     return db
 
 
+def write_a_unit(data_unit):
+    database = connect_sql()
+    cursor = database.cursor()
+    print (data_unit)
+    sql = "INSERT INTO reviews(app_name, comment, date, rating, helpful) " \
+          "VALUES('%s', '%s', '%s', '%d', '%d')" % (data_unit['name'], data_unit['content'], data_unit['date'],
+                                                    data_unit['rating'], data_unit['helpful'])
+    try:
+        cursor.execute(sql)
+        database.commit()
+    except:
+        database.rollback()
+    database.close()
+
+
 def getDriver():
     chrome_options = webdriver.ChromeOptions()
     # chrome_options.add_argument('headless')
@@ -114,21 +129,6 @@ def getReview(driver, page_num):
         review_unit ={'name': name_div.text, 'content': review, 'date': standard_date, 'rating': standard_rating, 'helpful': standard_helpful}
         # write_a_unit(review_unit)
         print (review_unit)
-
-
-def write_a_unit(data_unit):
-    database = connect_sql()
-    cursor = database.cursor()
-    print (data_unit)
-    sql = "INSERT INTO reviews(app_name, comment, date, rating, helpful) " \
-          "VALUES('%s', '%s', '%s', '%d', '%d')" % (data_unit['name'], data_unit['content'], data_unit['date'],
-                                                    data_unit['rating'], data_unit['helpful'])
-    try:
-        cursor.execute(sql)
-        database.commit()
-    except:
-        database.rollback()
-    database.close()
 
 
 if __name__ == "__main__":
