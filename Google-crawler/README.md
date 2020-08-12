@@ -1,5 +1,5 @@
-# ReviewCrawler
-Google Play Reviews crawler
+# Crawler
+Google Play data crawler
 
 # How to use
 
@@ -8,8 +8,6 @@ Google Play Reviews crawler
 2. pip install -r requirements.txt
 
 3. **Run "app_review.py"**
-
-4. Review will be printed.
 
 
 
